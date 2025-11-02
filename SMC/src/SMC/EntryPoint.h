@@ -6,7 +6,10 @@ extern SMC::Application* SMC::CreateApplication();
 
 int main(int argc, char** argv)
 {
-	printf("SMC Engine Starting...\n");
+	SMC::Log::Init();
+	SMC::Log::GetCoreLogger()->warn("SMC Engine Started.");
+	SMC::Log::GetClientLogger()->info("Hello from SMC Client.");
+
 	auto app = SMC::CreateApplication();
 	app->Run();
 	delete app;
